@@ -1,0 +1,142 @@
+{% extends 'admin.html.twig' %}
+
+
+{% block body %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div id="wrap" class="grid_1200">
+
+    <div class="panel-pop" id="signup">
+        <h2>Register Now<i class="icon-remove"></i></h2>
+        <div class="form-style form-style-3">
+            <form>
+                <div class="form-inputs clearfix">
+                    <p>
+                        <label class="required">Username<span>*</span></label>
+                        <input type="text">
+                    </p>
+                    <p>
+                        <label class="required">E-Mail<span>*</span></label>
+                        <input type="email">
+                    </p>
+                    <p>
+                        <label class="required">Password<span>*</span></label>
+                        <input type="password" value="">
+                    </p>
+                    <p>
+                        <label class="required">Confirm Password<span>*</span></label>
+                        <input type="password" value="">
+                    </p>
+                </div>
+                <p class="form-submit">
+                    <input type="submit" value="Signup" class="button color small submit">
+                </p>
+            </form>
+        </div>
+    </div><!-- End signup -->
+
+    <div class="breadcrumbs">
+        <section class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>This is my second Poll Question</h1>
+                </div>
+                <div class="col-md-12">
+                    <div class="crumbs">
+                        <a href="#">Home</a>
+                        <span class="crumbs-span">/</span>
+                        <a href="#">Questions</a>
+                        <span class="crumbs-span">/</span>
+                        <span class="current">This is my second Poll Question</span>
+                    </div>
+                </div>
+            </div><!-- End row -->
+        </section><!-- End container -->
+    </div><!-- End breadcrumbs -->
+
+    <section class="container main-content">
+        <div class="row">
+            <div class="col-md-9">
+                <article class="question single-question question-type-poll">
+                    <h2>
+                        <a href="{{ path('admin_question_list') }}">{{ Question.statment | raw }}</a>
+                    </h2>
+                    <div class="clearfix"></div>
+                    <div class="clearfix">
+                        <div>
+                            <a class="question-report" href="{{ path('admin_question_list') }}">Back To Questions</a>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="question-inner">
+                        <div class="clearfix"></div>
+                        <div class="question-desc" style="border:none!important;">
+                            <div class="clearfix"></div>
+                            <div class="poll_2">
+                                <div class="col-md-12">
+                                    <table class="table table-responsive" style="width: 100%;">
+                                        <tbody>
+                                        <style>
+                                            .fa-question-circle{font-size: 15px;}
+                                            .fa-edit{font-size: 15px;}
+                                            .fa-cut{font-size: 15px;}
+                                        </style>
+                                            {% for item in Answers %}
+                                                    <tr>
+                                                        <td style="width: 90%; padding-bottom: 10px;"><i class="fa fa-question-circle" style="background-color:{{ item.color }}; padding:10px;"></i> &nbsp; {{ item.ans }}</td>
+                                                        <td style="width: 5%;padding-bottom: 10px;"><a href="{{ path('admin_answers_update',{id:item.id}) }}"><i class="fa fa-edit"></i></a></td>
+                                                        <td style="width: 5%;padding-bottom: 10px;"><a href="{{ path('admin_answers_delete',{id:item.id}) }}"><i class="fa fa-cut"></i></a></td>
+                                                    </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <style>
+                                    .email{}
+                                    .fa-envelope{
+                                        padding: 10px;
+                                        font-size: 15px;
+                                    }
+                                    .fa-arrow-right{
+                                        padding: 10px;
+                                        font-size: 15px;
+                                    }
+                                    .answer{
+                                        padding: 7px 50px;
+                                        border-right: 1px solid #dedede;
+                                        border-bottom: 1px solid #dedede;
+                                    }
+
+                                </style>
+                                <div class="col-md-12" style="padding-top: 20px; margin-top:20px; border-top: 1px solid #dedede;">
+                                    {% for item in Info %}
+                                        <div class="col-md-12" style="padding: 15px 0px;">
+                                            <div class="email"> <i class="fa fa-envelope"></i> {{ item.Email }}</div>
+                                            <div class="answer"> <i class="fa fa-arrow-right"></i> {{ item.Answer.Ans }}</div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </article>
+            </div><!-- End main -->
+            <aside class="col-md-3 sidebar">
+                <div class="widget widget_stats">
+                    <h3 class="widget_title">Main Links</h3>
+                    <div class="ul_list ul_list-icon-ok">
+                        <ul>
+                            <li><a href="{{ path('admin_insert_answers') }}"><i class="icon-arrow-right"></i>New Question </a></li>
+                            <li><a href="{{ path('admin_question_list') }}"><i class="icon-arrow-right"></i>Questions List </a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </aside><!-- End sidebar -->
+        </div><!-- End row -->
+    </section><!-- End container -->
+
+    {% endblock %}

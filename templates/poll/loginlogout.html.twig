@@ -1,0 +1,23 @@
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    <ul>
+        <li><a href="#"><i class="icon-envelope"></i>Contact</a></li>
+        <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
+        <li><a href="{{ path('fos_user_security_logout') }}" id=""><i class="icon-user"></i>Sign Out</a></li>
+    </ul>
+{% else %}
+    <ul>
+        <li><a href="#"><i class="icon-envelope"></i>Contact</a></li>
+        <li><a href="#"><i class="icon-headphones"></i>Support</a></li>
+        <li><a href="#" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
+    </ul>
+{% endif %}
+
+
+<style>
+    .toplinks{
+        color: #FFFFFF;
+    }
+    .toplinks:hover{
+        color: #000000;
+    }
+</style>

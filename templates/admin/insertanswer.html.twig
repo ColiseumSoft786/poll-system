@@ -1,0 +1,228 @@
+{% extends 'admin.html.twig' %}
+
+
+
+
+{% block body %}
+
+<div class="loader"><div class="loader_html"></div></div>
+
+<div id="wrap" class="grid_1200">
+    <div class="panel-pop" id="signup">
+        <h2>Register Now<i class="icon-remove"></i></h2>
+        <div class="form-style form-style-3">
+            <form>
+                <div class="form-inputs clearfix">
+                    <p>
+                        <label class="required">Username<span>*</span></label>
+                        <input type="text">
+                    </p>
+                    <p>
+                        <label class="required">E-Mail<span>*</span></label>
+                        <input type="email">
+                    </p>
+                    <p>
+                        <label class="required">Password<span>*</span></label>
+                        <input type="password" value="">
+                    </p>
+                    <p>
+                        <label class="required">Confirm Password<span>*</span></label>
+                        <input type="password" value="">
+                    </p>
+                </div>
+                <p class="form-submit">
+                    <input type="submit" value="Signup" class="button color small submit">
+                </p>
+            </form>
+        </div>
+    </div><!-- End signup -->
+
+    <div class="breadcrumbs">
+        <section class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>This is my second Poll Question</h1>
+                </div>
+                <div class="col-md-12">
+                    <div class="crumbs">
+                        <a href="#">Home</a>
+                        <span class="crumbs-span">/</span>
+                        <a href="#">Questions</a>
+                        <span class="crumbs-span">/</span>
+                        <span class="current">This is my second Poll Question</span>
+                    </div>
+                </div>
+            </div><!-- End row -->
+        </section><!-- End container -->
+    </div><!-- End breadcrumbs -->
+
+    <section class="container main-content">
+        <div class="row">
+            <div class="col-md-9">
+
+                <div class="tabs-warp question-tab">
+                    <ul class="tabs">
+                        <li class="tab"><a href="#" class="current">Insert Questions</a></li>
+                    </ul>
+
+                    <style type="text/css">
+                        .mydiv{
+                            background-color: #FFFFFF;
+                            padding: 30px 0px;
+                            color: #666!important;
+                        }
+                        .myinput{
+                            width: 100%!important;
+                            padding: 8px!important;
+                            margin-bottom: 15px!important;
+                            background-color: #fff!important;
+                            color: #666!important;
+                        }
+                        .mytitle{
+                            width: 100%!important;
+                            padding: 10px!important;
+                            margin-bottom: 30px!important;
+                            background-color: #fff!important;
+                            color: #666!important;
+                        }
+                        .mytextarea{
+                            width: 100%!important;
+                            padding: 8px!important;
+                            margin-bottom: 15px!important;
+                            background-color: #fff!important;
+                            color: #666!important;
+                        }
+                        .mycolor{
+                            /*padding:30px 20px!important;*/
+                            width: 100%!important;
+                            height: 40px;
+                            border-color: #1b8bf9;
+                            margin-bottom: 15px!important;
+                            background-color: transparent!important;
+                        }
+                        .myque{
+                            padding: 20px!important;
+                            width: 100%!important;
+                            color: #666666!important;
+                            margin-bottom: 15px!important;
+                            background-color: #fff!important;
+                        }
+                        .mybtn{
+                            margin-top: 10px;
+                            padding: 10px!important;
+                            background-color: #2f3239!important;
+                            border: 1px solid #2f3239!important;
+                            color: #FFFFFF!important;
+                            width: 100%!important;
+                        }
+                        .mybtn:hover{
+                            padding: 10px!important;
+                            background-color: #1b8bf9!important;
+                            border: 1px solid #1b8bf9!important;
+                            color: #FFFFFF!important;
+                            width: 100%!important;
+                        }
+                        .addmoreinput{
+                            background-color: #2f3239!important;
+                            border: 1px solid #2f3239!important;
+                            color: #FFFFFF!important;
+                            width: 100%!important;
+                            margin-top: 9px;
+                            display: block;
+                        }
+                        .btn-remove{
+                            background-color: #2f3239!important;
+                            border: 1px solid #2f3239!important;
+                            color: #FFFFFF!important;
+                            width: 100%!important;
+                            margin-top: 9px;
+                            display: block;
+                        }
+                    </style>
+
+                    <div class="tab-inner-warp">
+                        <div class="tab-inner">
+                            <div class="col-md-12 mydiv">
+                                <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+                                <form action="" method="post">
+                                    <div class="col-md-10 col-md-offset-1" style="margin-bottom: 10px;">
+                                        <div class="col-md-12">
+                                            <input type="text" required id="title" name="title" class="mytitle" placeholder="Title">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <textarea name="statment" id="editor" placeholder="Add Question"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-md-offset-1" id="exdiv" style="margin-top: 20px;">
+                                        <div class="col-md-2">
+                                            <input type="color" name="color[]" value="#1b8bf9" class="mycolor" placeholder="Select Color">
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" name="answer[]" class="mytitle" placeholder="Add Answers">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="button" id="addinput" class="addmoreinput">+</button>
+                                        </div>
+                                    </div>
+                                    <div id="newinput" style="margin: 0px; padding: 0px;"></div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <div class="col-md-3">
+                                            <input type="submit" value="Insert Record" class="mybtn">
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <script>
+                                    $(document).ready(function () {
+                                        var i = 1;
+                                        $('#addinput').click(function () {
+                                            // i++;
+                                           var rowadd = $('<div class="col-md-12" style="margin:0px; padding: 0px;" id="exdiv'+ i +'"><div class="col-md-2"><input type="color" name="color[]" value="#1b8bf9" class="mycolor" placeholder="Select Color"></div><div class="col-md-9"><input type="text" name="answer[]" class="mytitle" placeholder="Add Answers"></div><div class="col-md-1"><button type="button" name="remove" id='+ i +' class="btn-remove">-</button></div></div>');
+                                            $('#exdiv').append(rowadd);
+                                            i++;
+                                        });
+
+                                        $(document).on('click','.btn-remove', function () {
+                                            var button_id = $(this).attr("id");
+                                            $("#exdiv"+button_id+"").remove();
+                                        });
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End page-content -->
+            </div><!-- End main -->
+            <aside class="col-md-3 sidebar">
+                <div class="widget widget_stats">
+                    <h3 class="widget_title">Main Links</h3>
+                    <div class="ul_list ul_list-icon-ok">
+                        <ul>
+                            <li><a href="{{ path('admin_insert_answers') }}"><i class="icon-arrow-right"></i>New Question </a></li>
+                            <li><a href="{{ path('admin_question_list') }}"><i class="icon-arrow-right"></i>Questions List </a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </aside><!-- End sidebar -->
+        </div><!-- End row -->
+    </section><!-- End container -->
+
+    {% block javascripts %}
+        <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+    {% endblock %}
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+</div>
+    {% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'admin.html.twig' %}
+
+
+
+{% block body %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <header id="header1">
+        <section class="container clearfix">
+            <center><h1 style="font-family:'Open Sans', Arial, sans-serif;margin: 0 auto; padding: 45px 0px; color: #ffffff;">Welcome To Admin Panel</h1></center>
+        </section><!-- End container -->
+    </header><!-- End header -->
+    <div style="padding: 50px 0px;"></div>
+    <section class="container main-content">
+        <div class="row">
+            <div class="col-md-9">
+
+                <div class="tabs-warp question-tab">
+                    <ul class="tabs">
+                        <li class="tab"><a href="#" class="current">Question Statements</a></li>
+                    </ul>
+                    <div class="tab-inner-warp">
+                        <div class="tab-inner">
+                            {% for item in Statements %}
+                                <article class="question question-type-normal">
+                                    <h2>
+                                        <a href="{{ path('admin_answers_list',{id:item.id})}}">{{ item.title | raw }}</a>
+                                    </h2>
+                                    <div class="question-inner">
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-8 question-desc">
+                                            <div>{{ item.statment | raw }}</div>
+                                        </div>
+                                        <div class="col-md-4" style="text-align: center;">
+                                            <a href="{{ path('admin_answers_list',{id:item.id}) }}"><i class="fa fa-eye" style="font-size: 15px; background: #2f3239; padding: 13.6px; margin: 0px 10px; color: #fff;"></i></a>
+                                            <a href="{{ path('admin_question_update',{id:item.id}) }}"><i class="fa fa-edit" style="font-size: 15px; background: #2f3239; padding: 13.6px; margin: 0px 10px; color: #fff;"></i></a>
+                                            <a href="{{ path('admin_question_delete',{id:item.id}) }}"><i class="fa fa-cut" style="font-size: 15px; background: #2f3239; padding: 13.6px; margin: 0px 10px; color: #fff;"></i></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </article>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div><!-- End page-content -->
+            </div><!-- End main -->
+            <aside class="col-md-3 sidebar">
+                <div class="widget widget_stats">
+                    <h3 class="widget_title">Main Links</h3>
+                    <div class="ul_list ul_list-icon-ok">
+                        <ul>
+                            <li><a href="{{ path('admin_insert_answers') }}"><i class="icon-arrow-right"></i>New Question </a></li>
+                            <li><a href="{{ path('admin_question_list') }}"><i class="icon-arrow-right"></i>Questions List </a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </aside><!-- End sidebar -->
+        </div><!-- End row -->
+    </section><!-- End container -->
+
+{% endblock %}
